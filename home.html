@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Travel Agency</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1621846846625-f0bde2eb7c3c?q=80&w=1076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            backdrop-filter: blur(4px);
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;   
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            background: #ffdd57;
+        }
+
+        .hero button:hover {
+            background: #f7c600;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto 40px;
+            padding: 0 15px;
+        }
+
+        section {
+            background: rgba(0,0,0,0.55);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        /* Popular packages cards */
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .package-card {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            box-shadow: 0 0 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 15px rgba(0,0,0,0.6);
+        }
+
+        .package-card h3 {
+            margin-top: 0;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: rgba(0,0,0,0.4);
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .package-card button {
+            margin-top: 8px;
+            padding: 6px 12px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            background: #ffdd57;
+        }
+
+        .package-card button:hover {
+            background: #f7c600;
+        }
+
+        /* Booking form layout */
+        #booking {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 20px;
+        }
+
+        #booking form {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: #ffdd57;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button[type="submit"]:hover {
+            background: #f7c600;
+        }
+
+        #budgetText {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .tips ul {
+            padding-left: 18px;
+        }
+
+        .why-us {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .why-card span {
+            font-size: 22px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0,0,0,0.75);
+            color: #fff;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+            #booking {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dream Trip Travel Agency</h1>
+    <nav>
+        <a href="index.html">Login</a>
+        <a href="home.html">Home</a>
+        <a href="packages.html">Packages</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h2>Welcome to Dream Trip</h2>
+    <p>We provide simple and budget-friendly tour packages for students and families. Plan your next escape with us!</p>
+    <button onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'});">
+        Book Your Trip
+    </button>
+</div>
+
+<div class="container">
+
+    <section>
+        <h2>Popular Packages</h2>
+        <div class="packages">
+            <div class="package-card">
+                <span class="tag">Beach</span>
+                <h3>Goa Beach Escape</h3>
+                <p>3N / 4D • Hotel stay • Breakfast • Local sightseeing</p>
+                <p><strong>Starting from: ₹10,000 per person</strong></p>
+            </div>
+            <div class="package-card">
+                <span class="tag">Mountains</span>
+                <h3>Manali Adventure</h3>
+                <p>4N / 5D • Mountain views • Bonfire night • Activities</p>
+                <p><strong>Starting from: ₹18,000 per person</strong></p>
+                
+            </div>
+            <div class="package-card">
+                <span class="tag">Culture</span>
+                <h3>Rajasthan Desert Safari</h3>
+                <p>3N / 4D • Desert camp • Cultural night • Camel ride</p>
+                <p><strong>Starting from: ₹15,000 per person</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking">
+        <div>
+            <h2>Book Your Trip</h2>
+            <p>Select a package and number of travellers. We will show an approximate budget for your trip.</p>
+
+            <form onsubmit="alert('This is a demo. Booking request saved.'); return false;">
+                <p><input type="text" id="name" placeholder="Your Name" required></p>
+                <p><input type="email" id="email" placeholder="Email" required></p>
+
+                <p>
+                    <select id="package" onchange="calculateBudget()" required>
+                        <option value="">Select Package</option>
+                        <option value="goa">Goa Beach</option>
+                        <option value="manali">Manali Trip</option>
+                        <option value="rajasthan">Rajasthan Safari</option>
+                    </select>
+                </p>
+
+                <p>
+                    <input type="number" id="travellers" min="1" value="1" oninput="calculateBudget()" required>
+                    <small>Number of travellers</small>
+                </p>
+
+                <p>
+                    <input type="date" id="date" required>
+                </p>
+
+                <p><button type="submit">Submit Booking</button></p>
+            </form>
+        </div>
+
+        <div>
+            <h3>Approximate Budget</h3>
+            <p id="budgetText">Select a package and number of travellers to see the budget.</p>
+
+            <div class="tips">
+                <h3>Travel Tips</h3>
+                <ul>
+                    <li>Carry ID proof and some cash.</li>
+                    <li>Check the weather before packing.</li>
+                    <li>Keep important phone numbers with you.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Why Travel With Us?</h2>
+        <div class="why-us">
+            <div class="why-card">
+                <span>💸</span>
+                <h3>Budget Friendly</h3>
+                <p>student and family discounts to make your trip affordable.</p>
+            </div>
+            <div class="why-card">
+                <span>🚌</span>
+                <h3>Comfortable Transport</h3>
+                <p>We arrange safe and comfortable transport options for all trips.</p>
+            </div>
+            <div class="why-card">
+                <span>🕒</span>
+                <h3>Quick Support</h3>
+                <p>Our team is available to help you with your travel queries.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>© Dream Trip Travel Agency</p>
+</footer>
+
+<script>
+var prices = {
+    goa: 10000,
+    manali: 18000,
+    rajasthan: 15000
+};
+
+function calculateBudget(){
+    var pkg = document.getElementById("package").value;
+    var travellers = document.getElementById("travellers").value;
+    var text = document.getElementById("budgetText");
+
+    if(pkg === "" || travellers === "" || travellers <= 0){
+        text.innerHTML = "Select a package and number of travellers to see the budget.";
+        return;
+    }
+
+    var perPerson = prices[pkg];
+    var total = perPerson * travellers;
+
+    text.innerHTML = "Approximate budget for " + travellers +
+        " traveller(s): ₹" + total + " (₹" + perPerson + " per person).";
+}
+</script>
+
+</body>
+</html>
+

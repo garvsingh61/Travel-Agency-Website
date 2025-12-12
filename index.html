@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Travel Agency</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1621846846625-f0bde2eb7c3c?q=80&w=1076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            backdrop-filter: blur(6px);
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:hover { color: #ffdd57; }
+
+        /* Login Box */
+        .login-box {
+            width: 350px;
+            margin: 120px auto;
+            text-align: center;
+            background: rgba(255,255,255,0.2);
+            padding: 35px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        }
+
+        .login-box h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            background: #ffdd57;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        button:hover { background: #f7c600; }
+
+        .small-text {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        footer {
+            margin-top: 70px;
+            text-align: center;
+            background: rgba(0,0,0,0.6);
+            padding: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dream Trip Travel Agency</h1>
+    <nav>
+        <a href="index.html">Login</a>
+        <a href="home.html">Home</a>
+        <a href="packages.html">Packages</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+</header>
+
+<div class="login-box">
+    <h2>Login</h2>
+
+    <form onsubmit="return validateLogin()">
+        <input type="email" id="email" placeholder="Enter Email" required>
+        <input type="password" id="pass" placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <p class="small-text">Don't have an account? 
+        <a href="signup.html" style="color:#ffdd57;">Sign Up</a>
+    </p>
+</div>
+
+<footer>
+    <p>© Dream Trip Travel Agency</p>
+</footer>
+
+<script>
+function validateLogin(){
+    let email = document.getElementById("email").value.trim();
+    let pass = document.getElementById("pass").value;
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailPattern.test(email)){
+        alert("Please enter a valid email address.");
+        return false;
+    }
+
+    if(pass.length < 4){
+        alert("Password must be at least 4 characters long.");
+        return false;
+    }
+
+    // Fetch stored signup details
+    let storedEmail = localStorage.getItem("dt_userEmail");
+    let storedPass  = localStorage.getItem("dt_userPass");
+
+    // If no data found
+    if(!storedEmail || !storedPass){
+        alert("No account found. Please sign up first.");
+        return false;
+    }
+
+    // Verify credentials
+    if(email === storedEmail && pass === storedPass){
+        alert("Login Successful! Welcome to Dream Trip ✈");
+        window.location.href = "home.html";  // Redirect to home page
+    } else {
+        alert("Incorrect Email or Password!");
+    }
+
+    return false;
+}
+</script>
+
+</body>
+</html>
+
+

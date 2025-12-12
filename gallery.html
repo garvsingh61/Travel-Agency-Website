@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery - Travel Agency</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1621846846625-f0bde2eb7c3c?q=80&w=1076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: #fff;
+            backdrop-filter: blur(7px);
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        nav a:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        section {
+            background: rgba(0,0,0,0.55);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h2 { margin-top: 0; font-size: 30px; }
+
+        .gallery {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0,0,0,0.6);
+        }
+
+        footer {
+            background: rgba(0,0,0,0.75);
+            text-align: center;
+            padding: 12px;
+            margin-top: 30px;
+            color: #fff;
+        }
+
+        /* Lightbox popup */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #popup img {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px black;
+        }
+
+        #popup span {
+            position: absolute;
+            top: 20px; right: 30px;
+            font-size: 35px;
+            cursor: pointer;
+            color: white;
+        }
+
+        @media(max-width:600px){
+            header { flex-direction: column; text-align:center; }
+            nav { margin-top:8px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dream Trip Travel Agency</h1>
+    <nav>
+        <a href="index.html">Login</a>
+        <a href="home.html">Home</a>
+        <a href="packages.html">Packages</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section>
+        <h2>Gallery</h2>
+        <p>Explore beautiful travel destinations captured through stunning images.</p>
+
+        <div class="gallery">
+            <img src="sean-oulashin-KMn4VEeEPR8-unsplash.jpg" onclick="openImg(this.src)">
+            <img src="kalen-emsley-Bkci_8qcdvQ-unsplash.jpg" onclick="openImg(this.src)">
+            <img src="unma-desai-uwMlZPLgRk8-unsplash.jpg" onclick="openImg(this.src)">
+            <img src="https://images.unsplash.com/photo-1526239187794-f8c27c7872ee?q=80&w=1167&auto=format&fit=crop" onclick="openImg(this.src)">
+            <img src="https://images.unsplash.com/photo-1621846846625-f0bde2eb7c3c?q=80&w=1076&auto=format&fit=crop" onclick="openImg(this.src)">
+            <img src="https://images.unsplash.com/photo-1500622944204-b135684e99fd?q=80&w=2061&auto=format&fit=crop" onclick="openImg(this.src)">
+            <img src="https://images.unsplash.com/photo-1718861922646-53f35114f276?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onclick="openImg(this.src)">
+            <img src="https://images.unsplash.com/photo-1707007785777-9324ce8cf42d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onclick="openImg(this.src)">
+        </div>
+    </section>
+</div>
+
+<!-- Fullscreen Image Popup -->
+<div id="popup" onclick="closeImg()">
+    <span>&times;</span>
+    <img id="popupImg">
+</div>
+
+<footer>
+    <p>© Dream Trip Travel Agency</p>
+</footer>
+
+<script>
+function openImg(src){
+    document.getElementById("popupImg").src = src;
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closeImg(){
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+

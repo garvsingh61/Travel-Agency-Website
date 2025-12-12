@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Packages - Travel Agency</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1621846846625-f0bde2eb7c3c?q=80&w=1076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            backdrop-filter: blur(4px);
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto 40px;
+            padding: 0 15px;
+        }
+
+        .intro {
+            background: rgba(0,0,0,0.55);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro h2 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        .intro p {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.15);
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .package-card {
+            background: rgba(0,0,0,0.55);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 18px rgba(0,0,0,0.7);
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.12);
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .package-card h3 {
+            margin: 5px 0 8px;
+        }
+
+        .package-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .rating {
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .rating span {
+            font-size: 15px;
+        }
+
+        .package-card ul {
+            padding-left: 18px;
+            font-size: 14px;
+        }
+
+        .package-card button {
+            margin-top: 8px;
+            padding: 6px 12px;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            background: #ffdd57;
+            font-weight: bold;
+        }
+
+        .package-card button:hover {
+            background: #f7c600;
+        }
+
+        .note {
+            background: rgba(0,0,0,0.55);
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .compare {
+            background: rgba(0,0,0,0.55);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .compare h3 {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th, td {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px;
+            text-align: center;
+        }
+
+        th {
+            background: rgba(255,255,255,0.08);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0,0,0,0.75);
+            color: #fff;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dream Trip Travel Agency</h1>
+    <nav>
+        <a href="index.html">Login</a>
+        <a href="home.html">Home</a>
+        <a href="packages.html">Packages</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="intro">
+        <h2>Tour Packages</h2>
+        <p>Choose from our most popular tour plans. All packages are student-friendly and customizable.</p>
+        <span class="highlight">Group discounts • Student offers • Custom dates</span>
+    </div>
+
+    <div class="package-grid">
+        <!-- Goa -->
+        <div class="package-card">
+            <span class="tag">Popular</span>
+            <h3>Goa Beach Fun</h3>
+            <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg" alt="Goa Beach">
+            <p class="price">3 Days / 2 Nights • Approx. <b>₹10,000</b> per person</p>
+            <p class="rating"><span>★★★★☆</span> • Best for: Friends & college trips</p>
+            <ul>
+                <li>Stay near beach</li>
+                <li>Breakfast included</li>
+                <li>Visit Baga & Calangute</li>
+            </ul>
+            <button onclick="alert('Goa package enquiry feature coming soon!')">Enquire Goa Package</button>
+        </div>
+
+        <!-- Manali -->
+        <div class="package-card">
+            <span class="tag">Cool Weather</span>
+            <h3>Manali Hills</h3>
+            <img src="https://images.unsplash.com/photo-1526239187794-f8c27c7872ee?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Manali Hills">
+            <p class="price">5 Days / 4 Nights • Approx. <b>₹18,000</b> per person</p>
+            <p class="rating"><span>★★★★☆</span> • Best for: Families & nature lovers</p>
+            <ul>
+                <li>Snow point / Solang (seasonal)</li>
+                <li>Local sightseeing</li>
+                <li>Simple hotel stay</li>
+            </ul>
+            <button onclick="alert('Manali package enquiry feature coming soon!')">Enquire Manali Package</button>
+        </div>
+
+        <!-- Rajasthan -->
+        <div class="package-card">
+            <span class="tag">Desert Experience</span>
+            <h3>Rajasthan Desert</h3>
+            <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Rajasthan Desert">
+            <p class="price">4 Days / 3 Nights • Approx. <b>₹15,000</b> per person</p>
+            <p class="rating"><span>★★★☆☆</span> • Best for: Culture & heritage trips</p>
+            <ul>
+                <li>Camel ride & desert camp</li>
+                <li>Cultural evening program</li>
+                <li>Visit forts / old markets</li>
+            </ul>
+            <button onclick="alert('Rajasthan package enquiry feature coming soon!')">Enquire Rajasthan Package</button>
+        </div>
+    </div>
+
+    <div class="note">
+        <b>Note:</b> Prices are approximate and can change based on season, hotel selection and number of travellers.
+        Final cost will be given after confirming dates and group size.
+    </div>
+
+    <div class="compare">
+        <h3>Quick Package Comparison</h3>
+        <table>
+            <tr>
+                <th>Package</th>
+                <th>Duration</th>
+                <th>Approx. Price (per person)</th>
+                <th>Main Highlight</th>
+            </tr>
+            <tr>
+                <td>Goa Beach Fun</td>
+                <td>3D / 2N</td>
+                <td>₹10,000</td>
+                <td>Beaches & nightlife</td>
+            </tr>
+            <tr>
+                <td>Manali Hills</td>
+                <td>5D / 4N</td>
+                <td>₹18,000</td>
+                <td>Snow & mountains</td>
+            </tr>
+            <tr>
+                <td>Rajasthan Desert</td>
+                <td>4D / 3N</td>
+                <td>₹15,000</td>
+                <td>Desert camp & culture</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<footer>
+    <p>© Dream Trip Travel Agency</p>
+</footer>
+
+</body>
+</html>
+
+
